@@ -10,7 +10,6 @@ def main():
 
     # Использование ThreadPoolExecutor для параллельной загрузки
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        # Загрузка данных
         future_to_url = {executor.submit(download_url, url): url for url in urls}
 
         for future in concurrent.futures.as_completed(future_to_url):
